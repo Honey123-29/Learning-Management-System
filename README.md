@@ -1,83 +1,73 @@
-# Learning Management System (LMS) - Java
-
-Ek console-based Learning Management System, pure Java (JDK 17+) mein. Koi external library ya database nahi chahiye.
-
-## Features
-
-**Admin**
-- Saare users aur courses dekhna
-- Naye instructor add karna
-- Course remove karna
-
-**Instructor**
-- Course create karna
-- Course material add karna
-- Assignment banana (max marks ke saath)
-- Student submissions dekhna aur marks + feedback dena
-- Enrolled students ki list
-
-**Student**
-- Self registration
-- Courses browse aur enroll karna
-- Course content (materials + assignments) dekhna
-- Assignment submit karna
-- Apne grades aur percentage dekhna
-
-**Technical**
-- Role-based login (ADMIN / INSTRUCTOR / STUDENT)
-- Passwords SHA-256 hash ke saath store hote hain
-- Data automatically `data/lms.dat` mein save hota hai (Java serialization), restart ke baad bhi rehta hai
-- OOP design: `model`, `service`, `util` packages
-
-## Project Structure
-
-```
+Learning Management System (LMS) - Java
+A console-based Learning Management System built entirely in pure Java (JDK 17+). No external libraries or database are required.
+Features
+Admin
+- View all users and courses.
+- Add new instructors.
+- Remove courses.
+Instructor
+- Create courses.
+- Add course materials.
+- Create assignments with maximum marks.
+- View student submissions and assign marks with feedback.
+- View the list of enrolled students.
+Student
+- Self-registration.
+- Browse available courses and enroll in them.
+- View course content (materials and assignments).
+- Submit assignments.
+- View personal grades and percentages.
+Technical Features
+- Role-based login (ADMIN / INSTRUCTOR / STUDENT).
+- Passwords are stored using SHA-256 hashing.
+- Data is automatically saved to data/lms.dat using Java Serialization.
+- Data persists even after restarting the application.
+- Object-oriented design with model, service, and util packages.
+Project Structure
 LMS/
 ├── src/com/lms/
-│   ├── Main.java                 # console menus (UI)
+│   ├── Main.java                 # Console menus (UI)
 │   ├── model/                    # User, Role, Course, Assignment, Submission
 │   ├── service/                  # LMSService (business logic), LMSException
 │   └── util/                     # DataStore (save/load), PasswordUtil
-├── run.sh                        # compile + run (Linux / Mac)
-├── run.bat                       # compile + run (Windows)
+├── run.sh                        # Compile and run (Linux / Mac)
+├── run.bat                       # Compile and run (Windows)
 └── README.md
-```
 
-## Run kaise karein
 
-JDK 17 ya usse upar install hona chahiye (`java -version` se check karein).
+How to Run
+JDK 17 or above must be installed.
 
-**Linux / Mac**
-```bash
+Check your Java version using:
+java -version
+
+
+Linux / Mac
 chmod +x run.sh
 ./run.sh
-```
 
-**Windows**
-```
+
+Windows
 run.bat
-```
 
-**Manually**
-```bash
+
+Manual Execution
 mkdir -p out
 javac -d out $(find src -name "*.java")
 java -cp out com.lms.Main
-```
 
-## Demo Logins
 
-| Role       | Email             | Password |
-|------------|-------------------|----------|
-| Admin      | admin@lms.com     | admin123 |
-| Instructor | teacher@lms.com   | teach123 |
-| Student    | student@lms.com   | stud123  |
+Demo Login Credentials
+Role	Email	Password
+Admin	admin@lms.com	admin123
+Instructor	teacher@lms.com	teach123
+Student	student@lms.com	stud123
 
-Data reset karna ho to `data/` folder delete kar dein.
+Reset Data
+To reset all application data, simply delete the data/ folder.
 
-## Aage badhane ke ideas
-
-- JDBC + MySQL se persistent database
-- Swing / JavaFX GUI
-- Quizzes, attendance, certificates
-- Spring Boot REST API
+Future Enhancements
+- Integrate JDBC with MySQL for persistent database storage.
+- Develop a graphical user interface (GUI) using Swing or JavaFX.
+- Add features such as quizzes, attendance tracking, and certificate generation.
+- Develop a Spring Boot REST API for backend integration and web application support.
